@@ -27,6 +27,7 @@ public class DynamicArray {
     }
 
     public void removeAt(int index) {
+        rangeCheck(index);
         if (size > 0) {
             for (int i = index; i < size - 1; i++) {
                 array[i] = array[i + 1];
@@ -61,7 +62,14 @@ public class DynamicArray {
         return -1;
     }
 
+    private void rangeCheck(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index : " + index);
+        }
+    }
+
     public Student get(int index) {
+        rangeCheck(index);
         return array[index];
     }
 

@@ -1,5 +1,7 @@
 package collections.homework;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedList {
 
     private class StudentNode {
@@ -67,36 +69,41 @@ public class DoublyLinkedList {
         if (isEmpty()) {
             return null;
         }
-
-        StudentNode removedNode = head;
-
-        if (head.getNext() == null) {
-            tail = null;
+        if (head == null) {
+            throw new NoSuchElementException();
         } else {
-            head.getNext().setPrevious(null);
-        }
+            StudentNode removedNode = head;
+            if (head.getNext() == null) {
+                tail = null;
+            } else {
+                head.getNext().setPrevious(null);
+            }
 
-        head = head.getNext();
-        size--;
-        removedNode.setNext(null);
-        return removedNode;
+            head = head.getNext();
+            size--;
+            removedNode.setNext(null);
+            return removedNode;
+        }
     }
 
     public StudentNode removeLast() {
         if (isEmpty()) {
             return null;
         }
-        StudentNode removedNode = tail;
-
-        if (tail.getPrevious() == null) {
-            head = null;
+        if (tail == null) {
+            throw new NoSuchElementException();
         } else {
-            tail.getPrevious().setNext(null);
+            StudentNode removedNode = tail;
+            if (tail.getPrevious() == null) {
+                head = null;
+            } else {
+                tail.getPrevious().setNext(null);
+            }
+            tail = tail.getPrevious();
+            size--;
+            removedNode.setPrevious(null);
+            return removedNode;
         }
-        tail = tail.getPrevious();
-        size--;
-        removedNode.setPrevious(null);
-        return removedNode;
     }
 
     public int getSize() {
@@ -104,7 +111,7 @@ public class DoublyLinkedList {
     }
 
     public boolean isEmpty() {
-        return head == null;
+        return size == 0;
     }
 
     public void printList() {
