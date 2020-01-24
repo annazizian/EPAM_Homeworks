@@ -20,63 +20,56 @@ public class StudentService {
         arrayListOfStudents.add(tyrion);
         arrayListOfStudents.add(jeor);
 
-        Collections.sort(arrayListOfStudents, new SortingByFirstName());
+        Collections.sort(arrayListOfStudents, new FirstNameComparator());
         System.out.println("Sorted by first name (in ascending order): ");
         printingArrayList(arrayListOfStudents);
 
-        Collections.sort(arrayListOfStudents, new SortingByAge());
-        System.out.println();
-        System.out.println("Sorted by age (in descending order): ");
+        Collections.sort(arrayListOfStudents, new AgeComparator());
+        System.out.println("\nSorted by age (in descending order): ");
         printingArrayList(arrayListOfStudents);
 
         //Test for Task 2
         LinkedList<Student> studentsLinkedList = new LinkedList<>(arrayListOfStudents);
         Collections.sort(studentsLinkedList);
-        System.out.println();
-        System.out.println("Sorted by last name (in ascending order): ");
+        System.out.println("\nSorted by last name (in ascending order): ");
         printingArrayList(studentsLinkedList);
 
         //Test for Task 3
-        DynamicArray da = new DynamicArray();
-        da.add(tyrion);
-        da.add(aegon);
-        da.add(jeor);
-        da.add(robb);
-        System.out.println();
-        System.out.println("Printing dynamic array.");
-        printDynamicArray(da);
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.add(tyrion);
+        dynamicArray.add(aegon);
+        dynamicArray.add(jeor);
+        dynamicArray.add(robb);
+        System.out.println("\nPrinting dynamic array.");
+        printDynamicArray(dynamicArray);
 
         //Test for task 4
-        DLL list = new DLL();
-        list.push(aegon);
-        list.push(robb);
-        list.push(tyrion);
-        list.push(jeor);
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        doublyLinkedList.push(aegon);
+        doublyLinkedList.push(robb);
+        doublyLinkedList.push(tyrion);
+        doublyLinkedList.push(jeor);
 
-        System.out.println();
-        System.out.println("Doubly Linked List.");
-        list.printList();
-        System.out.println();
+        System.out.println("\nDoubly Linked List.");
+        doublyLinkedList.printList();
 
-        list.addLast(tormund);
-        System.out.println("List after adding an element to the end.");
-        list.printList();
-        System.out.println();
-        list.pop();
-        System.out.println("List after removing an element from front.");
-        list.printList();
-        System.out.println();
-        list.removeLast();
-        System.out.println("List after removing last element.");
-        list.printList();
-        System.out.println(list.getSize());
+        doublyLinkedList.addLast(tormund);
+        System.out.println("\nList after adding an element to the end.");
+        doublyLinkedList.printList();
+        doublyLinkedList.pop();
+        System.out.println("\nList after removing an element from front.");
+        doublyLinkedList.printList();
+        doublyLinkedList.removeLast();
+        System.out.println("\nList after removing last element.");
+        doublyLinkedList.printList();
+        System.out.println(doublyLinkedList.getSize());
     }
 
     //for task 1
     public void printingArrayList(ArrayList<Student> students) {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
-            iterator.next().printStudent();
+            System.out.println(iterator.next());
         }
     }
 
@@ -84,14 +77,14 @@ public class StudentService {
     private static void printingArrayList(LinkedList<Student> students) {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
-            iterator.next().printStudent();
+            System.out.println(iterator.next());
         }
     }
 
     //for task 3
     private static void printDynamicArray(DynamicArray students) {
         for (int i = 0; i < students.getSize(); i++) {
-            students.get(i).printStudent();
+            System.out.println(students.get(i));
         }
     }
 }

@@ -1,6 +1,36 @@
 package collections.homework;
 
-public class DLL {
+public class DoublyLinkedList {
+
+    private class StudentNode {
+        private Student student;
+        private collections.homework.DoublyLinkedList.StudentNode next;
+        private collections.homework.DoublyLinkedList.StudentNode previous;
+
+        public StudentNode(Student student) {
+            this.student = student;
+        }
+
+        public collections.homework.DoublyLinkedList.StudentNode getNext() {
+            return next;
+        }
+
+        public void setNext(collections.homework.DoublyLinkedList.StudentNode next) {
+            this.next = next;
+        }
+
+        public collections.homework.DoublyLinkedList.StudentNode getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(collections.homework.DoublyLinkedList.StudentNode previous) {
+            this.previous = previous;
+        }
+
+        public String toString() {
+            return student.toString();
+        }
+    }
 
     private StudentNode head;
     private StudentNode tail;

@@ -23,15 +23,6 @@ public class Student implements Comparable<Student> {
         return age;
     }
 
-    public void printStudent() {
-        System.out.println("Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}');
-    }
-
-    //for doubly linked list
     @Override
     public String toString() {
         return "Student{" +
