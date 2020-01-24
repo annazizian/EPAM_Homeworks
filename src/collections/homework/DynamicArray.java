@@ -1,4 +1,4 @@
-package CollectionsHomework;
+package collections.homework;
 
 public class DynamicArray {
     private Student[] array;
