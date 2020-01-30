@@ -1,9 +1,6 @@
-package collections.homework.lists;
+package collection.homework.list;
 
-import collections.homework.model.Student;
-
-import java.util.ArrayList;
-import java.util.Iterator;
+import collection.homework.model.Student;
 
 public class DynamicArray {
     private Student[] array;

@@ -1,10 +1,10 @@
-package collections.homework.services;
+package collection.homework.service;
 
-import collections.homework.comparatos.AgeComparator;
-import collections.homework.comparatos.FirstNameComparator;
-import collections.homework.lists.DoublyLinkedList;
-import collections.homework.lists.DynamicArray;
-import collections.homework.model.Student;
+import collection.homework.comparator.AgeComparator;
+import collection.homework.comparator.FirstNameComparator;
+import collection.homework.model.Student;
+import collection.homework.list.DoublyLinkedList;
+import collection.homework.list.DynamicArray;
 
 import java.util.ArrayList;
 import java.util.Collections;

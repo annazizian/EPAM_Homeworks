@@ -1,6 +1,6 @@
-package collections.homework.comparatos;
+package collection.homework.comparator;
 
-import collections.homework.model.Student;
+import collection.homework.model.Student;
 
 import java.util.Comparator;
 

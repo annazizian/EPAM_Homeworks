@@ -1,6 +1,6 @@
-package collections.homework;
+package collection.homework;
 
-import collections.homework.services.StudentService;
+import collection.homework.service.StudentService;
 
 public class Main {
     public static void main(String[] args) {

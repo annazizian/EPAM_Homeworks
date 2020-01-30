@@ -1,4 +1,4 @@
-package collections.homework.model;
+package collection.homework.model;
 
 public class Student implements Comparable<Student> {
     private String firstName;
