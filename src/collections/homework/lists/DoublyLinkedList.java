@@ -1,29 +1,31 @@
-package collections.homework;
+package collections.homework.lists;
+
+import collections.homework.model.Student;
 
 public class DoublyLinkedList {
 
     private class StudentNode {
         private Student student;
-        private collections.homework.DoublyLinkedList.StudentNode next;
-        private collections.homework.DoublyLinkedList.StudentNode previous;
+        private collections.homework.lists.DoublyLinkedList.StudentNode next;
+        private collections.homework.lists.DoublyLinkedList.StudentNode previous;
 
         public StudentNode(Student student) {
             this.student = student;
         }
 
-        public collections.homework.DoublyLinkedList.StudentNode getNext() {
+        public collections.homework.lists.DoublyLinkedList.StudentNode getNext() {
             return next;
         }
 
-        public void setNext(collections.homework.DoublyLinkedList.StudentNode next) {
+        public void setNext(collections.homework.lists.DoublyLinkedList.StudentNode next) {
             this.next = next;
         }
 
-        public collections.homework.DoublyLinkedList.StudentNode getPrevious() {
+        public collections.homework.lists.DoublyLinkedList.StudentNode getPrevious() {
             return previous;
         }
 
-        public void setPrevious(collections.homework.DoublyLinkedList.StudentNode previous) {
+        public void setPrevious(collections.homework.lists.DoublyLinkedList.StudentNode previous) {
             this.previous = previous;
         }
 

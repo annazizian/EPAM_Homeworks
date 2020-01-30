@@ -1,4 +1,9 @@
-package collections.homework;
+package collections.homework.lists;
+
+import collections.homework.model.Student;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class DynamicArray {
     private Student[] array;
@@ -20,7 +25,7 @@ public class DynamicArray {
         array = biggerArray;
     }
 
-    boolean add(Student student) {
+    public boolean add(Student student) {
         resizeIfFull();
         array[size++] = student;
         return true;
@@ -75,6 +80,12 @@ public class DynamicArray {
 
     public int getSize() {
         return size;
+    }
+
+    public static void printDynamicArray(DynamicArray students) {
+        for (int i = 0; i < students.getSize(); i++) {
+            System.out.println(students.get(i));
+        }
     }
 }
 
