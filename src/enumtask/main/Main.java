@@ -16,10 +16,10 @@ public class Main {
         MonthService.printHolidaysOfMonth(Month.APRIL);
 
         System.out.println("Traversed names of months:");
-        System.out.println(monthService.traverseAndPrintMonthNames(Month.January));
-        System.out.println(monthService.traverseAndPrintMonthNames(Month.FEBRUARY));
-        System.out.println(monthService.traverseAndPrintMonthNames(Month.MARCH));
-        System.out.println(monthService.traverseAndPrintMonthNames(Month.APRIL));
-        System.out.println(monthService.traverseAndPrintMonthNames(Month.MAY));
+        monthService.traverseAndPrintMonthName(Month.JANUARY);
+        monthService.traverseAndPrintMonthName(Month.FEBRUARY);
+        monthService.traverseAndPrintMonthName(Month.MARCH);
+        monthService.traverseAndPrintMonthName(Month.APRIL);
+        monthService.traverseAndPrintMonthName(Month.MAY);
     }
 }

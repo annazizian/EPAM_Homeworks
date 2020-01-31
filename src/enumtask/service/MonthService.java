@@ -11,7 +11,7 @@ public class MonthService {
         if (month == null) {
             throw new NoSuchMonthException();
         }
-        if (day < 1 || day > month.getNumberOfDays(month)) {
+        if (day < 1 || day > Month.getNumberOfDays(month)) {
             throw new DayIsOutOfBoundsException();
         }
         for (int i = 0; i < getNumberOfHolidaysInMonth(month); i++) {
@@ -37,14 +37,13 @@ public class MonthService {
                 Arrays.toString(month.getHolidaysInMonth(month)) + "\n");
     }
 
-    public String traverseAndPrintMonthNames(Month month) {
+    public void traverseAndPrintMonthName(Month month) {
         if (month == null) {
             throw new NoSuchMonthException();
         }
-        String myString = "";
-        for (int i = month.name().length() - 1; i >= 0; i--) {
-            myString += month.name().charAt(i);
-        }
-        return myString.toLowerCase();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(month.name().toLowerCase());
+        stringBuilder.reverse();
+        System.out.println(stringBuilder);
     }
 }

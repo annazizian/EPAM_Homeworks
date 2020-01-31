@@ -5,7 +5,7 @@ import enumtask.exception.NoSuchMonthException;
 import java.util.Arrays;
 
 public enum Month {
-    January(31,  1, 6, 28),
+    JANUARY(31,  1, 6, 28),
     FEBRUARY(29, 14, 21, 23, 28),
     MARCH(31, 8),
     APRIL(30, 1, 7, 13, 24),
