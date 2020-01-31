@@ -79,7 +79,7 @@ public class DynamicArray {
         return size;
     }
 
-    public static void printDynamicArray(DynamicArray students) {
+    public void printDynamicArray(DynamicArray students) {
         for (int i = 0; i < students.getSize(); i++) {
             System.out.println(students.get(i));
         }

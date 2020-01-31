@@ -110,7 +110,7 @@ public class DoublyLinkedList {
     }
 
     public boolean isEmpty() {
-        return head == null;
+        return size == 0;
     }
 
     public void printList() {
