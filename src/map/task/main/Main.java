@@ -6,6 +6,7 @@ import map.task.service.StudentService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class Main {
         studentService.printHashMap(studentsArrayList);
 
         System.out.println("\nThe number of students studying in the same faculty");
-        HashMap<Faculty, Integer> facultyHashMap = StudentService.hashMapOfFaculties(studentArrayList);
+        Map<Faculty, Integer> facultyHashMap = StudentService.hashMapOfFaculties(studentArrayList);
         studentService.printHashMap(facultyHashMap);
     }
 }

@@ -3,9 +3,7 @@ package map.task.service;
 import map.task.model.Faculty;
 import map.task.model.Student;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 public class StudentService {
     public static ArrayList<Student> createStudentsArrayList() {
@@ -45,8 +43,8 @@ public class StudentService {
     }
 
     //getting the number of students in each faculty
-    public static HashMap<Faculty, Integer> hashMapOfFaculties(ArrayList<Student> studentArrayList) {
-        HashMap<Faculty, Integer> facultiesHashMap = new HashMap<>();
+    public static Map<Faculty, Integer> hashMapOfFaculties(ArrayList<Student> studentArrayList) {
+        Map<Faculty, Integer> facultiesHashMap = new EnumMap<>(Faculty.class);
         if (studentArrayList != null) {
             for (Student student : studentArrayList) {
                 Faculty faculty = student.getFaculty();
@@ -60,7 +58,7 @@ public class StudentService {
         return facultiesHashMap;
     }
 
-    public void printHashMap(HashMap hashMap) {
+    public void printHashMap(Map hashMap) {
         if (!hashMap.isEmpty()) {
             Iterator iterator = hashMap.keySet().iterator();
             while (iterator.hasNext()) {
