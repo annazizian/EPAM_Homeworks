@@ -9,10 +9,10 @@ import java.util.Arrays;
 public class MonthService {
     public boolean isHoliday(Month month, int day) {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         if (day < 1 || day > Month.getNumberOfDays(month)) {
-            throw new DayIsOutOfBoundsException();
+            throw new DayIsOutOfBoundsException("There is no such day in the month");
         }
         for (int i = 0; i < getNumberOfHolidaysInMonth(month); i++) {
             if (month.getHolidaysInMonth(month)[i] == day) {
@@ -24,14 +24,14 @@ public class MonthService {
 
     public int getNumberOfHolidaysInMonth(Month month) {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         return month.getHolidaysInMonth(month).length;
     }
 
     public static void printHolidaysOfMonth(Month month) {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         System.out.println("Holidays of " + month.name().toLowerCase() + " are " +
                 Arrays.toString(month.getHolidaysInMonth(month)) + "\n");
@@ -39,7 +39,7 @@ public class MonthService {
 
     public void traverseAndPrintMonthName(Month month) {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(month.name().toLowerCase());

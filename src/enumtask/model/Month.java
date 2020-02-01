@@ -18,20 +18,19 @@ public enum Month {
     NOVEMBER(30, 10),
     DECEMBER(31, 7, 9);
 
-    private int numberOfHolidays = 0;
     private int numberOfDays;
     private int[] holidaysInMonth = {};
 
-    public static int getNumberOfDays(Month month) {
+    public static int getNumberOfDays(Month month) throws NoSuchMonthException {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         return month.numberOfDays;
     }
 
-    public int[] getHolidaysInMonth(Month month) {
+    public int[] getHolidaysInMonth(Month month) throws NoSuchMonthException {
         if (month == null) {
-            throw new NoSuchMonthException();
+            throw new NoSuchMonthException("There is no such month");
         }
         return month.holidaysInMonth;
     }
@@ -40,14 +39,12 @@ public enum Month {
     public String toString() {
         return this.name() + " -> " +
                 "numberOfDays = " + numberOfDays +
-                ", numberOfHolidays = " + numberOfHolidays +
                 ", holidaysInMonth = " + Arrays.toString(holidaysInMonth);
     }
 
     Month(int numberOfDays, int... holidaysInMonth) {
         this.numberOfDays = numberOfDays;
         if (holidaysInMonth != null) {
-            numberOfHolidays = holidaysInMonth.length;
             this.holidaysInMonth = holidaysInMonth;
         }
     }
