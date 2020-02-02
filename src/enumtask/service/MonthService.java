@@ -46,4 +46,10 @@ public class MonthService {
         stringBuilder.reverse();
         System.out.println(stringBuilder);
     }
+
+    public void printAllMonths() {
+        for (Month month : Month.values()) {
+            System.out.println(month.name().toLowerCase());
+        }
+    }
 }

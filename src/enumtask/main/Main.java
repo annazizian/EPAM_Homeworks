@@ -21,5 +21,8 @@ public class Main {
         monthService.traverseAndPrintMonthName(Month.MARCH);
         monthService.traverseAndPrintMonthName(Month.APRIL);
         monthService.traverseAndPrintMonthName(Month.MAY);
+
+        System.out.println("\nAll months of the year:");
+        monthService.printAllMonths();
     }
 }
