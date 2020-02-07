@@ -8,12 +8,13 @@ import set.model.Student;
 public class TreeHelper {
 
     public static class StudentCreation {
-        Student student1 = new Student("Anna", "Azizyan", 20);
-        Student student2 = new Student("Vazgen", "Abrahamyan", 26);
-        Student student3 = new Student("Tsaghik", "Khachatryan", 19);
-        Student student4 = new Student("Karine", "Gevorgyan", 18);
-        Student student5 = new Student("Vahe", "Antonyan", 21);
-        Student student6 = new Student("Ani", "Mazmanyan", 19);
+        public Student student1 = new Student("Anna", "Azizyan", 20);
+        public Student student2 = new Student("Vazgen", "Abrahamyan", 26);
+        public Student student3 = new Student("Tsaghik", "Khachatryan", 19);
+        public Student student4 = new Student("Karine", "Gevorgyan", 18);
+        public Student student5 = new Student("Vahe", "Antonyan", 21);
+        public Student student6 = new Student("Ani", "Mazmanyan", 19);
+        public Student student7 = new Student("Ani", "Mazmanyan", 19);
     }
 
     BinarySearchTree<Student> treeOfStudents = new BinarySearchTree<>();
@@ -26,6 +27,7 @@ public class TreeHelper {
         treeOfStudents.add(studentCreation.student4);
         treeOfStudents.add(studentCreation.student5);
         treeOfStudents.add(studentCreation.student6);
+        treeOfStudents.add(studentCreation.student7);
     }
 
     public BinarySearchTree<Student> getTreeOfStudents() {
@@ -83,5 +85,9 @@ public class TreeHelper {
 
     public BinarySearchTree<Coffee> getTreeOfCoffees() {
         return treeOfCoffees;
+    }
+
+    public void print(BinarySearchTree tree) {
+        tree.toString();
     }
 }

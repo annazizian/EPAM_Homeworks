@@ -10,17 +10,20 @@ public class Main {
         treeHelper.createStudentsSet();
         treeHelper.createGlassesSet();
 
-        treeHelper.getTreeOfStudents().printInOrder(treeHelper.getTreeOfStudents().getRoot());
+        treeHelper.getTreeOfStudents().inOrder();
+        System.out.println(treeHelper.getTreeOfStudents().size());
+        treeHelper.getTreeOfStudents().remove(treeHelper.studentCreation.student1);
+        treeHelper.getTreeOfStudents().inOrder();
         System.out.println(treeHelper.getTreeOfStudents().size());
 
         System.out.println("------------------------------");
 
-        treeHelper.getTreeOfCoffees().printInOrder(treeHelper.getTreeOfCoffees().getRoot());
+        treeHelper.getTreeOfCoffees().inOrder();
         System.out.println(treeHelper.getTreeOfCoffees().size());
 
         System.out.println("------------------------------");
 
-        treeHelper.getTreeOfGlasses().printInOrder(treeHelper.getTreeOfGlasses().getRoot());
+        treeHelper.getTreeOfGlasses().inOrder();
         System.out.println(treeHelper.getTreeOfGlasses().size());
     }
 

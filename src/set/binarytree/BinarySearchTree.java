@@ -45,7 +45,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (size == 0) {
             root = new Node<T>(value);
             size++;
-        } else {
+        } else if (!contains(value)) {
             /* Add the node */
             add(root, value);
         }
@@ -111,7 +111,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
      *
      * @param node tree that the method traverse through.
      */
-    public void printInOrder(Node<T> node) {
+    private void printInOrder(Node<T> node) {
         /* If root is null, return , else print in order */
         if (node == null) {
             return;
@@ -121,31 +121,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
         printInOrder(node.rightChild);
     }
 
+    public void inOrder() {
+        printInOrder(getRoot());
+    }
+
     /**
      * Remove method that can be accessed by the user in order
      * to remove elements from AVL tree.
      * <p>
      *
      * @param t that is removes from the tree
+     * @return
      */
 
-    public Node<T> remove(T t) {
+    public void remove(T t) {
         Node<T> node = new Node<>(t);
-//         conditions for node with one child
-        if (node.leftChild == null) {
-            return node.rightChild;
-        }
-        // no right child return left child
-        else if (node.rightChild == null) {
-            return node.leftChild;
-        } else {
-//             node with two children
-            T key = getPredecessor(node);
-            node.key = (T) node;
-            node.leftChild = remove(node.leftChild, node);
-            size--;
-            return node;
-        }
+        remove(root, node);
     }
 
     /**
@@ -182,17 +173,30 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public Node<T> remove(Node<T> current, Node<T> node) {
         if (current == null) {
-            ; //do nothing
+           return null;
         } else if (current.key.compareTo(node.key) < 0) {
             current.leftChild = remove(current.leftChild, node);
         } else if (current.key.compareTo(node.key) > 0) {
             current.rightChild = remove(current.rightChild, node);
         } else {
-            current = remove(current, node);
-            if (current.leftChild == null) {
-                if (current.rightChild == null) {
-                    return current;
-                }
+            // condition for leaf
+            if (current.leftChild == null && current.rightChild == null) {
+                current = null;
+            }
+//         conditions for node with one child
+            else if (current.leftChild == null) {
+                return current.rightChild;
+            }
+            // no right child return left child
+            else if (current.rightChild == null) {
+                return current.leftChild;
+            } else {
+//             node with two children
+                T temp = getPredecessor(current);
+                current.key = temp;
+                current.leftChild = remove(current.leftChild, current);
+                size--;
+                return current;
             }
         }
         return current;
