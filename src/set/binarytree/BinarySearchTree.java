@@ -181,7 +181,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         } else {
             // condition for leaf
             if (current.leftChild == null && current.rightChild == null) {
-                current = null;
+                return null;
             }
 //         conditions for node with one child
             else if (current.leftChild == null) {

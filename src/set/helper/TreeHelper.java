@@ -35,12 +35,12 @@ public class TreeHelper {
     }
 
     public static class GlassesCreation {
-        Glasses glasses1 = new Glasses("Ray-Ban", false, 150);
-        Glasses glasses2 = new Glasses("Versace", false, 228);
-        Glasses glasses3 = new Glasses("Michael Kors", false, 80);
-        Glasses glasses4 = new Glasses("Gucci", true, 135);
-        Glasses glasses5 = new Glasses("Gucci", true, 131);
-        Glasses glasses6 = new Glasses("Ray-Ban", false, 155);
+        public Glasses glasses1 = new Glasses("Ray-Ban", false, 150);
+        public Glasses glasses2 = new Glasses("Versace", false, 228);
+        public Glasses glasses3 = new Glasses("Michael Kors", false, 80);
+        public Glasses glasses4 = new Glasses("Gucci", true, 135);
+        public Glasses glasses5 = new Glasses("Gucci", true, 131);
+        public Glasses glasses6 = new Glasses("Ray-Ban", false, 155);
     }
 
     BinarySearchTree<Glasses> treeOfGlasses = new BinarySearchTree<>();
@@ -64,16 +64,16 @@ public class TreeHelper {
                 true, false, false);
         public Coffee coffee2 = new Coffee("Latte", 30, 0, true,
                 false, false, false);
-        Coffee coffee3 = new Coffee("Cappuccino", 45, 0, true,
+        public Coffee coffee3 = new Coffee("Cappuccino", 45, 0, true,
                 true, false, false);
-        Coffee coffee4 = new Coffee("Irish Coffee", 40, 20, false,
+        public Coffee coffee4 = new Coffee("Irish Coffee", 40, 20, false,
                 false, true, false);
-        Coffee coffee5 = new Coffee("Affogato", 20, 10, false,
+        public Coffee coffee5 = new Coffee("Affogato", 20, 10, false,
                 false, false, true);
     }
 
     CoffeeCreation coffeeCreation = new CoffeeCreation();
-    public BinarySearchTree<Coffee> treeOfCoffees = new BinarySearchTree<>();
+    BinarySearchTree<Coffee> treeOfCoffees = new BinarySearchTree<>();
 
     public void createCoffeeSet() {
         treeOfCoffees.add(coffeeCreation.coffee1);
