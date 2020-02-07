@@ -2,7 +2,7 @@ package map.task.main;
 
 import map.task.model.Faculty;
 import map.task.model.Student;
-import map.task.nitialization.StudentCreator;
+import map.task.initialization.StudentCreator;
 import map.task.service.StudentService;
 
 import java.util.ArrayList;

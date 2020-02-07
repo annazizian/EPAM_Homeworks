@@ -1,4 +1,4 @@
-package map.task.nitialization;
+package map.task.initialization;
 
 import map.task.model.Faculty;
 import map.task.model.Student;
