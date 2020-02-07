@@ -24,7 +24,7 @@ public class Coffee implements Comparable<Coffee> {
 
     @Override
     public int compareTo(Coffee coffee) {
-        return this.hashCode() - coffee.hashCode();
+        return this.gramsOfCoffee - coffee.gramsOfCoffee;
     }
 
     @Override
@@ -45,5 +45,12 @@ public class Coffee implements Comparable<Coffee> {
     public int hashCode() {
         return Objects.hash(name, gramsOfCoffee, gramsOfSugar, withSteamedMilk, withFrothedMilk,
                 withWhiskey, withIceCream);
+    }
+
+    @Override
+    public String toString() {
+        return "Coffee{" +
+                "name='" + name + '\'' +
+                ", gramsOfCoffee=" + gramsOfCoffee +"}";
     }
 }

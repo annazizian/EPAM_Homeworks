@@ -1,13 +1,13 @@
 package set.helper;
 
-import set.binarytree.AVLTree;
+import set.binarytree.BinarySearchTree;
 import set.model.Coffee;
 import set.model.Glasses;
 import set.model.Student;
 
 public class TreeHelper {
 
-    public class StudentCreation {
+    public static class StudentCreation {
         Student student1 = new Student("Anna", "Azizyan", 20);
         Student student2 = new Student("Vazgen", "Abrahamyan", 26);
         Student student3 = new Student("Tsaghik", "Khachatryan", 19);
@@ -16,19 +16,23 @@ public class TreeHelper {
         Student student6 = new Student("Ani", "Mazmanyan", 19);
     }
 
-    public AVLTree<Student> createStudentsSet() {
-        AVLTree<Student> tree = new AVLTree<Student>();
-        StudentCreation studentCreation = new StudentCreation();
-        tree.insert(new AVLTree.Node(studentCreation.student1));
-        tree.insert(new AVLTree.Node(studentCreation.student2));
-        tree.insert(new AVLTree.Node(studentCreation.student3));
-        tree.insert(new AVLTree.Node(studentCreation.student4));
-        tree.insert(new AVLTree.Node(studentCreation.student5));
-        tree.insert(new AVLTree.Node(studentCreation.student6));
-        return tree;
+    BinarySearchTree<Student> treeOfStudents = new BinarySearchTree<>();
+    public StudentCreation studentCreation = new StudentCreation();
+
+    public void createStudentsSet() {
+        treeOfStudents.add(studentCreation.student1);
+        treeOfStudents.add(studentCreation.student2);
+        treeOfStudents.add(studentCreation.student3);
+        treeOfStudents.add(studentCreation.student4);
+        treeOfStudents.add(studentCreation.student5);
+        treeOfStudents.add(studentCreation.student6);
     }
 
-    public class GlassesCreation {
+    public BinarySearchTree<Student> getTreeOfStudents() {
+        return treeOfStudents;
+    }
+
+    public static class GlassesCreation {
         Glasses glasses1 = new Glasses("Ray-Ban", false, 150);
         Glasses glasses2 = new Glasses("Versace", false, 228);
         Glasses glasses3 = new Glasses("Michael Kors", false, 80);
@@ -37,24 +41,28 @@ public class TreeHelper {
         Glasses glasses6 = new Glasses("Ray-Ban", false, 155);
     }
 
-    public AVLTree<Glasses> createGlassesSet() {
-        AVLTree<Glasses> tree = new AVLTree<>();
-        GlassesCreation glassesCreation = new GlassesCreation();
-        tree.insert(new AVLTree.Node(glassesCreation.glasses1));
-        tree.insert(new AVLTree.Node(glassesCreation.glasses2));
-        tree.insert(new AVLTree.Node(glassesCreation.glasses3));
-        tree.insert(new AVLTree.Node(glassesCreation.glasses4));
-        tree.insert(new AVLTree.Node(glassesCreation.glasses5));
-        tree.insert(new AVLTree.Node(glassesCreation.glasses6));
-        return tree;
+    BinarySearchTree<Glasses> treeOfGlasses = new BinarySearchTree<>();
+    GlassesCreation glassesCreation = new GlassesCreation();
+
+    public void createGlassesSet() {
+        treeOfGlasses.add(glassesCreation.glasses1);
+        treeOfGlasses.add(glassesCreation.glasses2);
+        treeOfGlasses.add(glassesCreation.glasses3);
+        treeOfGlasses.add(glassesCreation.glasses4);
+        treeOfGlasses.add(glassesCreation.glasses5);
+        treeOfGlasses.add(glassesCreation.glasses6);
     }
 
-    public class CoffeeCreation {
-        Coffee coffee1 = new Coffee("Americano", 30, 20, false,
+    public BinarySearchTree<Glasses> getTreeOfGlasses() {
+        return treeOfGlasses;
+    }
+
+    public static class CoffeeCreation {
+        public Coffee coffee1 = new Coffee("Americano", 61, 20, false,
                 true, false, false);
-        Coffee coffee2 = new Coffee("Latte", 30, 0, true,
+        public Coffee coffee2 = new Coffee("Latte", 30, 0, true,
                 false, false, false);
-        Coffee coffee3 = new Coffee("Cappuccino", 40, 0, true,
+        Coffee coffee3 = new Coffee("Cappuccino", 45, 0, true,
                 true, false, false);
         Coffee coffee4 = new Coffee("Irish Coffee", 40, 20, false,
                 false, true, false);
@@ -62,20 +70,18 @@ public class TreeHelper {
                 false, false, true);
     }
 
-    public AVLTree<Coffee> createCoffesSet() {
-        AVLTree<Coffee> tree = new AVLTree<>();
-        CoffeeCreation coffeeCreation = new CoffeeCreation();
-        tree.insert(new AVLTree.Node(coffeeCreation.coffee1));
-        tree.insert(new AVLTree.Node(coffeeCreation.coffee2));
-        tree.insert(new AVLTree.Node(coffeeCreation.coffee3));
-        tree.insert(new AVLTree.Node(coffeeCreation.coffee4));
-        tree.insert(new AVLTree.Node(coffeeCreation.coffee5));
-        return tree;
+    CoffeeCreation coffeeCreation = new CoffeeCreation();
+    public BinarySearchTree<Coffee> treeOfCoffees = new BinarySearchTree<>();
+
+    public void createCoffeeSet() {
+        treeOfCoffees.add(coffeeCreation.coffee1);
+        treeOfCoffees.add(coffeeCreation.coffee2);
+        treeOfCoffees.add(coffeeCreation.coffee3);
+        treeOfCoffees.add(coffeeCreation.coffee4);
+        treeOfCoffees.add(coffeeCreation.coffee5);
     }
 
-    public void printSet(AVLTree tree) {
-        for (Object object : tree) {
-            System.out.println(object + "\n");
-        }
+    public BinarySearchTree<Coffee> getTreeOfCoffees() {
+        return treeOfCoffees;
     }
 }

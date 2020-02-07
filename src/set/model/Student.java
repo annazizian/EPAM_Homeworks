@@ -32,4 +32,12 @@ public class Student implements Comparable<Student> {
     public int hashCode() {
         return Objects.hash(firstName, lastName, age);
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

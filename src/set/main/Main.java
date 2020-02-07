@@ -1,15 +1,17 @@
 package set.main;
 
-import set.binarytree.AVLTree;
 import set.helper.TreeHelper;
-
-import java.util.Iterator;
+import set.model.Student;
 
 public class Main {
     public static void main(String[] args) {
         TreeHelper treeHelper = new TreeHelper();
+        treeHelper.createCoffeeSet();
         treeHelper.createStudentsSet();
-        treeHelper.printSet(treeHelper.createStudentsSet());
+        treeHelper.createGlassesSet();
+
+        treeHelper.getTreeOfStudents().printInOrder(treeHelper.getTreeOfStudents().getRoot());
+        System.out.println(treeHelper.getTreeOfStudents().size());
     }
 
 }

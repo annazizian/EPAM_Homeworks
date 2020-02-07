@@ -32,4 +32,12 @@ public class Glasses implements Comparable<Glasses> {
     public int compareTo(Glasses glasses) {
         return (int) (this.price - glasses.price);
     }
+
+    @Override
+    public String toString() {
+        return "Glasses{" +
+                "brand='" + brand + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
