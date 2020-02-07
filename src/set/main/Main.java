@@ -12,6 +12,16 @@ public class Main {
 
         treeHelper.getTreeOfStudents().printInOrder(treeHelper.getTreeOfStudents().getRoot());
         System.out.println(treeHelper.getTreeOfStudents().size());
+
+        System.out.println("------------------------------");
+
+        treeHelper.getTreeOfCoffees().printInOrder(treeHelper.getTreeOfCoffees().getRoot());
+        System.out.println(treeHelper.getTreeOfCoffees().size());
+
+        System.out.println("------------------------------");
+
+        treeHelper.getTreeOfGlasses().printInOrder(treeHelper.getTreeOfGlasses().getRoot());
+        System.out.println(treeHelper.getTreeOfGlasses().size());
     }
 
 }
