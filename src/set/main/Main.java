@@ -1,27 +1,22 @@
 package set.main;
 
-import set.helper.TreeHelper;
-import set.model.Student;
+import set.helper.TreeCreator;
 
 public class Main {
     public static void main(String[] args) {
-        TreeHelper treeHelper = new TreeHelper();
+        TreeCreator treeHelper = new TreeCreator();
         treeHelper.createCoffeeSet();
         treeHelper.createStudentsSet();
         treeHelper.createGlassesSet();
 
         treeHelper.getTreeOfStudents().inOrder();
         System.out.println(treeHelper.getTreeOfStudents().size());
-        treeHelper.getTreeOfStudents().remove(treeHelper.studentCreation.student1);
+        treeHelper.getTreeOfStudents().remove(treeHelper.studentCreation.student3);
         treeHelper.getTreeOfStudents().inOrder();
-        System.out.println(treeHelper.getTreeOfStudents().size());
-
-        System.out.println("------------------------------");
+        System.out.println(treeHelper.getTreeOfStudents().size() + "\n");
 
         treeHelper.getTreeOfCoffees().inOrder();
-        System.out.println(treeHelper.getTreeOfCoffees().size());
-
-        System.out.println("------------------------------");
+        System.out.println(treeHelper.getTreeOfCoffees().size() + "\n");
 
         treeHelper.getTreeOfGlasses().inOrder();
         System.out.println(treeHelper.getTreeOfGlasses().size());

@@ -20,7 +20,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * data structure that represents a node in the tree
      */
 
-    public class Node<T> {
+    private class Node<T> {
         T key;
         Node<T> leftChild;
         Node<T> rightChild;
@@ -41,12 +41,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * @param value that is inserted into the tree
      */
     public void add(T value) {
-        /* If size is zero, make it a root node */
+        if (value == null) {
+            throw new IllegalArgumentException("Can not contain null value");
+        }
         if (size == 0) {
             root = new Node<T>(value);
             size++;
         } else if (!contains(value)) {
-            /* Add the node */
             add(root, value);
         }
     }
@@ -59,13 +60,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * @return {@link Node}
      */
     private Node<T> add(Node<T> rootNode, T value) {
-        /* If root is null, return null */
         if (rootNode == null) {
             return null;
         }
-        /* Create a new node */
         Node<T> newNode = new Node<T>(value);
-        /* Compare with the root, if small, insert left else insert right */
         if ((newNode.key).compareTo(rootNode.key) <= 0) {
             if (rootNode.leftChild != null) {
                 rootNode.leftChild = add(rootNode.leftChild, value);
@@ -79,7 +77,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 rootNode.rightChild = newNode;
             }
         }
-        /* Increase the size and return rootNode */
         size++;
         return rootNode;
     }
@@ -95,9 +92,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * Find the size of the tree from a given node
      */
     private int size(Node<T> root) {
-        /* If root is null, return 0 else
-         * size of left subtree + size of right subtree
-         * + 1 for root */
         if (root == null) {
             return 0;
         } else {
@@ -112,7 +106,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * @param node tree that the method traverse through.
      */
     private void printInOrder(Node<T> node) {
-        /* If root is null, return , else print in order */
         if (node == null) {
             return;
         }
@@ -131,10 +124,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * <p>
      *
      * @param t that is removes from the tree
-     * @return
      */
 
     public void remove(T t) {
+        if (t == null) {
+            throw new IllegalArgumentException("Can not remove null value");
+        }
         Node<T> node = new Node<>(t);
         remove(root, node);
     }
@@ -149,12 +144,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
     private T getPredecessor(Node<T> node) {
 
         if (node.leftChild == null) {
-            // there should be a left child
             throw new NoSuchElementException("Error: there should be a left chlid");
         } else {
-            // keep current node
             Node<T> current = node.leftChild;
-            // while there is still more right children
             while (current.rightChild != null) {
                 current = current.rightChild;
             }
@@ -174,26 +166,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
     public Node<T> remove(Node<T> current, Node<T> node) {
         if (current == null) {
            return null;
-        } else if (current.key.compareTo(node.key) < 0) {
+        }
+        if (current.key.compareTo(node.key) < 0) {
             current.leftChild = remove(current.leftChild, node);
         } else if (current.key.compareTo(node.key) > 0) {
             current.rightChild = remove(current.rightChild, node);
         } else {
-            // condition for leaf
             if (current.leftChild == null && current.rightChild == null) {
                 return null;
             }
-//         conditions for node with one child
             else if (current.leftChild == null) {
                 return current.rightChild;
             }
-            // no right child return left child
             else if (current.rightChild == null) {
                 return current.leftChild;
             } else {
-//             node with two children
-                T temp = getPredecessor(current);
-                current.key = temp;
+                current.key = getPredecessor(current);
                 current.leftChild = remove(current.leftChild, current);
                 size--;
                 return current;
@@ -223,7 +211,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * @return true if data is found.
      */
     private boolean contains(Node<T> current, Node<T> node) {
-        // if tree is empty
         if (current == null) {
             return false;
         } else if (current.key.compareTo(node.key) < 0) {
@@ -231,16 +218,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         } else if (current.key.compareTo(node.key) > 0) {
             return contains(current.leftChild, node);
         } else {
-            // true if found
             return true;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "BinarySearchTree{" +
-                "root=" + root +
-                ", size=" + size +
-                '}';
     }
 }

@@ -5,7 +5,7 @@ import set.model.Coffee;
 import set.model.Glasses;
 import set.model.Student;
 
-public class TreeHelper {
+public class TreeCreator {
 
     public static class StudentCreation {
         public Student student1 = new Student("Anna", "Azizyan", 20);
