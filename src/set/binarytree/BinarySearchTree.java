@@ -64,7 +64,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return null;
         }
         Node<T> newNode = new Node<T>(value);
-        if ((newNode.key).compareTo(rootNode.key) <= 0) {
+        if ((newNode.key).compareTo(rootNode.key) < 0) {
             if (rootNode.leftChild != null) {
                 rootNode.leftChild = add(rootNode.leftChild, value);
             } else {
