@@ -17,7 +17,7 @@ public class Glasses implements Comparable<Glasses> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Glasses glasses = (Glasses) o;
+        var glasses = (Glasses) o;
         return isOptical == glasses.isOptical &&
                 Double.compare(glasses.price, price) == 0 &&
                 Objects.equals(brand, glasses.brand);

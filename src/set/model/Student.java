@@ -22,7 +22,7 @@ public class Student implements Comparable<Student> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
+        var student = (Student) o;
         return age == student.age &&
                 Objects.equals(firstName, student.firstName) &&
                 Objects.equals(lastName, student.lastName);

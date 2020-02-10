@@ -31,7 +31,7 @@ public class Coffee implements Comparable<Coffee> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Coffee coffee = (Coffee) o;
+        var coffee = (Coffee) o;
         return gramsOfCoffee == coffee.gramsOfCoffee &&
                 gramsOfSugar == coffee.gramsOfSugar &&
                 withSteamedMilk == coffee.withSteamedMilk &&

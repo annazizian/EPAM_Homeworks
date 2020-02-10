@@ -20,7 +20,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * data structure that represents a node in the tree
      */
 
-    private class Node<T> {
+    private static class Node<T> {
         T key;
         Node<T> leftChild;
         Node<T> rightChild;
@@ -45,7 +45,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             throw new IllegalArgumentException("Can not contain null value");
         }
         if (size == 0) {
-            root = new Node<T>(value);
+            root = new Node<>(value);
             size++;
         } else if (!contains(value)) {
             add(root, value);
@@ -63,7 +63,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (rootNode == null) {
             return null;
         }
-        Node<T> newNode = new Node<T>(value);
+        Node<T> newNode = new Node<>(value);
         if ((newNode.key).compareTo(rootNode.key) < 0) {
             if (rootNode.leftChild != null) {
                 rootNode.leftChild = add(rootNode.leftChild, value);

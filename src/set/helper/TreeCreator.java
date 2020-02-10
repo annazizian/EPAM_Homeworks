@@ -86,8 +86,4 @@ public class TreeCreator {
     public BinarySearchTree<Coffee> getTreeOfCoffees() {
         return treeOfCoffees;
     }
-
-    public void print(BinarySearchTree tree) {
-        tree.toString();
-    }
 }
