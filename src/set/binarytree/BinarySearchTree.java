@@ -130,8 +130,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (t == null) {
             throw new IllegalArgumentException("Can not remove null value");
         }
-        Node<T> node = new Node<>(t);
-        remove(root, node);
+        remove(root, t);
     }
 
     /**
@@ -159,18 +158,18 @@ public class BinarySearchTree<T extends Comparable<T>> {
      * to be removed and calls remove method when data is found.
      *
      * @param current that data is being removed from.
-     * @param node    that is removed from the tree structure.
+     * @param value    that is removed from the tree structure.
      * @return The new tree structure after data has been removed.
      */
 
-    public Node<T> remove(Node<T> current, Node<T> node) {
+    public Node<T> remove(Node<T> current, T value) {
         if (current == null) {
            return null;
         }
-        if (current.key.compareTo(node.key) < 0) {
-            current.leftChild = remove(current.leftChild, node);
-        } else if (current.key.compareTo(node.key) > 0) {
-            current.rightChild = remove(current.rightChild, node);
+        if (value.compareTo(current.key) < 0) {
+            current.leftChild = remove(current.leftChild, value);
+        } else if (value.compareTo(current.key) > 0) {
+            current.rightChild = remove(current.rightChild, value);
         } else {
             if (current.leftChild == null && current.rightChild == null) {
                 return null;
@@ -182,7 +181,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 return current.leftChild;
             } else {
                 current.key = getPredecessor(current);
-                current.leftChild = remove(current.leftChild, current);
+                current.leftChild = remove(current.leftChild, current.key);
                 size--;
                 return current;
             }

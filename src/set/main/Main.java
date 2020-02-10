@@ -11,7 +11,7 @@ public class Main {
 
         treeHelper.getTreeOfStudents().inOrder();
         System.out.println(treeHelper.getTreeOfStudents().size());
-        treeHelper.getTreeOfStudents().remove(treeHelper.studentCreation.student3);
+        treeHelper.getTreeOfStudents().remove(treeHelper.studentCreation.student2);
         treeHelper.getTreeOfStudents().inOrder();
         System.out.println(treeHelper.getTreeOfStudents().size() + "\n");
 
