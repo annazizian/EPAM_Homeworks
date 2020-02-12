@@ -1,5 +1,7 @@
 package thread;
 
+import javax.swing.plaf.TableHeaderUI;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -11,8 +13,8 @@ public class Main {
         Thread t2 = new Thread(runnable2, "Lidia");
         Thread t3 = new Thread(runnable3, "Vazgen");
 
-        t1.start();
         t2.start();
+        t1.start();
         t3.start();
     }
 }
