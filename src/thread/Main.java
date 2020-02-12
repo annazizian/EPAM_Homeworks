@@ -1,17 +1,11 @@
 package thread;
 
-import javax.swing.plaf.TableHeaderUI;
-
 public class Main {
     public static void main(String[] args) {
 
-        PrintNames runnable1 = new PrintNames(1);
-        PrintNames runnable2 = new PrintNames(2);
-        PrintNames runnable3 = new PrintNames(0);
-
-        Thread t1 = new Thread(runnable1, "Anna");
-        Thread t2 = new Thread(runnable2, "Lidia");
-        Thread t3 = new Thread(runnable3, "Vazgen");
+        Thread t1 = new Thread(new PrintNames(1), "Anna");
+        Thread t2 = new Thread(new PrintNames(2), "Lidia");
+        Thread t3 = new Thread(new PrintNames(0), "Vazgen");
 
         t2.start();
         t1.start();
