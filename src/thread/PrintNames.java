@@ -1,18 +1,18 @@
 package thread;
 
 public class PrintNames extends Thread {
-    public final int PRINT_COUNT = 20;
-    static int number = 1;
-    int remainder;
-    static final Object lock = new Object();
+    private static int number = 1;
+    private int remainder;
+    private static final Object lock = new Object();
 
     PrintNames(int remainder) {
         this.remainder = remainder;
     }
-
+    
     @Override
     public void run() {
-        while (number < PRINT_COUNT - 1) {
+        int PRINT_COUNT = 20;
+        while (number < PRINT_COUNT) {
             synchronized (lock) {
                 while (number % 3 != remainder) { // wait for numbers other than remainder
                     try {
